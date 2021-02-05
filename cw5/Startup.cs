@@ -32,6 +32,7 @@ namespace cw5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddAuthentication("AuthenticationBasic").AddScheme<AuthenticationSchemeOptions, BasicAuthHandler>("AuthenticationBasic", null);
             services.AddControllers().AddXmlSerializerFormatters();
             services.AddTransient<IStudentDbService, OracleStudentDbService>();

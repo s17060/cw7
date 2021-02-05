@@ -44,7 +44,7 @@ namespace cw6.Handlers
             var login = credentials[0];
             var password = credentials[1];
 
-            using (var con = new SqlConnection("Data Source = db - mssql; Initial Catalog = s17060; Integrated Security = True"))
+            using (var con = new SqlConnection("Integrated Security=SSPI;User ID=s17060;Initial Catalog=s17060;Data Source=db-mssql"))
             using (var com = new SqlCommand())
             {
                 com.Connection = con;
@@ -56,7 +56,7 @@ namespace cw6.Handlers
                 SqlDataReader dr = com.ExecuteReader();
                 if (!dr.Read())
                 {
-                    return AuthenticateResult.Fail("Incorrect login or password");
+                        return AuthenticateResult.Fail("Incorrect login or password");
                 }
             }
 
